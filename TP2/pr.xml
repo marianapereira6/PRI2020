@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "file:/home/maraiana/Desktop/universidade/4%C2%BA%20ano/PLC/1%C2%BA%20semestre/2%20aula/pr.dtd">
+<project>
+    <dados>
+        <key_nome>TP2</key_nome>
+        <titulo>Trabalho de dtd e Xpath</titulo>
+        <begin_date>19/10/2020</begin_date>
+        <end_date>26/10/2020</end_date>
+        <supervisor href="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho></supervisor>
+    </dados>
+    <workteam>
+        <pessoas>
+            <nome>Mariana de Oliveira Pereira</nome>
+            <numero>A81146</numero>
+            <email>a81146@alunos.uminho.pt</email>
+        </pessoas>
+    </workteam>
+    <resumo>
+        <paragrafos>Na primeira parte do TP2 consistia na realização do um dtd para um <bold>Project Record.</bold></paragrafos>
+        <paragrafos>E na segunda parte realização de 3 perguntas em Xpath sobre os dados do <link href="http://www4.di.uminho.pt/~jcr/XML/didac/xmldocs/arq.xml"></link></paragrafos>
+    </resumo>
+    <deliverables>
+        <link href="www.google.com"></link>
+    </deliverables>
+</project>

@@ -20,6 +20,10 @@
         <paragrafos>E na segunda parte realização de 3 perguntas em Xpath sobre os dados do <link href="http://www4.di.uminho.pt/~jcr/XML/didac/xmldocs/arq.xml"></link></paragrafos>
     </resumo>
     <deliverables>
-        <link href="www.google.com"></link>
+        <link href="https://github.com/marianapereira6/PRI2020/blob/main/TP2/pr.dtd">DTD - Project Record</link>
+        <link href="https://github.com/marianapereira6/PRI2020/edit/main/TP2/pr.xml">XML - Project Record</link>
+        <link href="https://github.com/marianapereira6/PRI2020/blob/main/TP2/arq.xml">XML - arq</link>
+        <link href=" https://github.com/marianapereira6/PRI2020/blob/main/TP2/arq.txt">Xpath - arq</link>
+       
     </deliverables>
 </project>

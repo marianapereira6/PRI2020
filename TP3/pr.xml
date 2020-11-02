@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project SYSTEM "../2%20aula/pr.dtd">
+<project>
+    <dados>
+        <key_nome>TP3</key_nome>
+        <titulo>Stylesheet do arq.xml</titulo>
+        <begin_date>26/10/20</begin_date>
+        <end_date>02/11/20</end_date>
+        <supervisor href="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho></supervisor>
+    </dados>
+    <workteam>
+        <pessoas>
+            <nome>Mariana de Oliveira Pereira</nome>
+            <numero>A81146</numero>
+            <email>a81146@alunos.uminho.pt</email>
+        </pessoas>
+    </workteam>
+    <resumo>
+        <paragrafos>Primeira do TP3 consistia na realização de um dtd para o arq.xml.</paragrafos>
+        <paragrafos>Em segida a realização de uma xsl para o mesmo ficheiro, criando um indice de navegação. Neste indice usei a identi para odenação alfabética.</paragrafos>
+    </resumo>
+    <deliverables>
+        <link href=""></link>
+    </deliverables>
+</project>

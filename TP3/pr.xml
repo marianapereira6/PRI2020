@@ -16,10 +16,14 @@
         </pessoas>
     </workteam>
     <resumo>
-        <paragrafos>Primeira do TP3 consistia na realização de um dtd para o arq.xml.</paragrafos>
+        <paragrafos>A primeira parte do TP3 consistia na realização de um dtd para o arq.xml.</paragrafos>
         <paragrafos>Em segida a realização de uma xsl para o mesmo ficheiro, criando um indice de navegação. Neste indice usei a identi para odenação alfabética.</paragrafos>
     </resumo>
     <deliverables>
-        <link href=""></link>
+        <link href="arqsite/index.html"></link>
+        <link href="https://github.com/marianapereira6/PRI2020/blob/main/TP3/arq.dtd"></link>
+        <link href="https://github.com/marianapereira6/PRI2020/blob/main/TP3/arq.xml"></link>
+        <link href="https://github.com/marianapereira6/PRI2020/blob/main/TP3/arq.xsl"></link>
+        <link href="https://github.com/marianapereira6/PRI2020/blob/main/TP3/pr.xml"></link>
     </deliverables>
 </project>

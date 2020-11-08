@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <key>TP4</key>
+        <title>Servidor Node JS</title>
+        <bdate>02/11/20</bdate>
+        <edate>09/11/20</edate>
+        <supervisor>FJosé Carlos Ramalho </supervisor>
+    </meta>
+    <workteam>
+        <worker num="A81146">
+            <name>Mariana Pereira</name>
+            <email>a81146@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>Primeira parte do trabalho criar um xsl do com indice do ficheiro arq.</p>
+        <p>Segunda parte criar um <b>servidor</b> em NodeJS que recebe pedidos e responde 
+            com a página <i>html</i> correspondente. </p>
+    </abstract>
+    <deliverables>
+        <link url=""></link>
+    </deliverables>
+</pr>

@@ -20,6 +20,8 @@
             com a página <i>html</i> correspondente. </p>
     </abstract>
     <deliverables>
-        <link url=""></link>
+        <link url="https://github.com/marianapereira6/PRI2020/blob/main/TP4/server.js"></link>
+        <link url="https://github.com/marianapereira6/PRI2020/blob/main/TP4/pr.xml"></link>
+        <link url="https://github.com/marianapereira6/PRI2020/tree/main/TP4/xsl/site"></link>
     </deliverables>
 </pr>

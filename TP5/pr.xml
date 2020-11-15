@@ -19,7 +19,9 @@
         <p>Criar uma lista de alunos/cursos/instrumentos. Cada elemento é um link que redireciona para o pedido respetivo no json-server. Em que este é uma lista em HTML com a lista do tema pedido e cada linha é um link  json-server para o pedido.  </p>
     </abstract>
     <deliverables>
-        
+    <link url="https://github.com/marianapereira6/PRI2020/blob/main/TP5/pr.xml">Project Record</link>
+    <link url="https://github.com/marianapereira6/PRI2020/blob/main/TP5/escola.js">Servidor Escola</link>
+    <link url="https://github.com/marianapereira6/PRI2020/blob/main/TP5/db.json">DataSet</link>
     </deliverables>
 </pr>
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pr SYSTEM "pr.dtd">
+<pr>
+    <meta>
+        <key>TP5</key>
+        <title>Json-server</title>
+        <bdate>09/11/20</bdate>
+        <edate>16/11/20</edate>
+        <supervisor>FJosé Carlos Ramalho </supervisor>
+    </meta>
+    <workteam>
+        <worker num="A81146">
+            <name>Mariana Pereira</name>
+            <email>a81146@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>Objetivo de tp era criar um servidor node a responder no localhost:3001 usando um  json-server na porta 3000.</p>
+        <p>Criar uma lista de alunos/cursos/instrumentos. Cada elemento é um link que redireciona para o pedido respetivo no json-server. Em que este é uma lista em HTML com a lista do tema pedido e cada linha é um link  json-server para o pedido.  </p>
+    </abstract>
+    <deliverables>
+        
+    </deliverables>
+</pr>
+
+

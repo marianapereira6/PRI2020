@@ -10,7 +10,7 @@ function pedido(tipo, res) {
           list = resp.data;
           res.write('<ul>');
           list.forEach(a => {
-              res.write(`<li><a href="localhost:3001${tipo}/${a.id}">${a.id}</a></li>`);
+              res.write(`<li><a href=\"http://localhost:3001${tipo}/${a.id}">${a.id}</a></li>`);
           });
           res.write('</ul>');
           res.end();

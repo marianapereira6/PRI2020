@@ -1,0 +1,35 @@
+{
+  "toDoList": [
+    {
+      "data": "22-12-98",
+      "responsavel": "A81146",
+      "descricao": "MIEI"
+    },
+    {
+      "data": "02-07-98",
+      "responsavel": "A81146",
+      "descricao": "golias"
+    },
+    {
+        "data": "11-11-98",
+        "responsavel": "A81146",
+        "descricao": "59"
+    }
+    
+  ],
+
+  "vistoCancelado": [
+    {
+      "data": "22-12-98",
+      "responsavel": "A81146",
+      "descricao": "MIEI",
+      "estado" : "cancelado"
+    },
+    {
+      "data": "02-07-98",
+      "responsavel": "A81146",
+      "descricao": "golias",
+      "estado" : "visto"
+    }
+  ]
+}

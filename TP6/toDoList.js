@@ -2,8 +2,22 @@ var http = require('http')
 var axios = require('axios')
 var fs = require('fs')
 
+var {parse} = require('querystring')
+
 
 // Funções auxilidares
+function recuperaInfo(request, callback){
+    if (request.headers['content-type'] == 'application/x-www-form-urlencoded'){
+        let body = ''
+        request.on('data',bloco => {
+            body += bloco.toString()
+        })
+        request.on('end', ()=>{
+            console.log(body)
+            callback(parse(body))
+        })
+    }
+}
 // Template para a página com to do List ------------------
 function geraPagList( lista, d){
     let pagHTML = `
@@ -22,8 +36,8 @@ function geraPagList( lista, d){
                       <th>Data limite</th>
                       <th>Responsável</th>
                       <th>Descrição</th>
-                      <th></th>
-                      <th></th>
+                      <th>Feito</th>
+                      <th>Cancelado</th>
                       
                   </tr>
     `
@@ -33,8 +47,12 @@ function geraPagList( lista, d){
                   <td>${a.data}</td>
                   <td>${a.responsavel}</td>
                   <td>${a.descricao}</td>
-                  <td><button class="w3-button w3-teal">✔️</button></td>
-                  <td><button class="w3-button w3-teal">✖️</button></td>
+                  <form class="w3-container" action="/confirmation" method="POST">
+                  <td><input class="w3-btn w3-blue-teal" type="submit" value="✔️"/></td>
+                  </form>
+                  <form class="w3-container" action="/cancel" method="POST">
+                  <td><input class="w3-btn w3-blue-teal" type="submit" value="x"/></td>
+                  </form>
               </tr>
           `
       });
@@ -127,6 +145,38 @@ function geraPagVistoCancelado( lista, d){
     return pagHTML
 }
 
+// POST Confirmation HTML Page Template -------------------------------------
+function geraPostConfirm( registo, d){
+    return `
+    <html>
+    <head>
+        <title>POST receipt: ${registo.id}</title>
+        <meta charset="utf-8"/>
+        <link rel="icon" href="favicon.png"/>
+        <link rel="stylesheet" href="w3.css"/>
+    </head>
+    <body>
+        <div class="w3-card-4">
+            <header class="w3-container w3-teal">
+                <h1>Nova tarefa ${registo.id} inserido</h1>
+            </header>
+
+            <div class="w3-container">
+                <p><a href="/toDoList">Aceda aqui Ã  sua pÃ¡gina."</a></p>
+            </div>
+
+            <footer class="w3-container w3-teal">
+                <address>Gerado por ToDoList::PRI2020 em ${d} - [<a href="/">Voltar</a>]</address>
+            </footer>
+        </div>
+    </body>
+    </html>
+    `
+}
+
+
+
+
   // Criação do servidor
 
 var toDoListServer = http.createServer(function (req, res) {
@@ -138,51 +188,18 @@ var toDoListServer = http.createServer(function (req, res) {
     switch(req.method){
         case "GET": 
         if((req.url == "/") || (req.url == "/toDoList")){
-           /* axios.all([
+            axios.all([
                 axios.get('http://localhost:3000/toDoList?_sort=data'),
                 axios.get('http://localhost:3000/vistoCancelado?_sort=estado&_order=desc')
                 ]).then(axios.spread((toListRes, vcRes) => {
-                  this.lista = toListRes.data
+                  lista = toListRes.data
                   res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write( geraFormList(d ))
-                        res.write(geraPagList(lista,d))
-                  this.vc =   vcRes.data
-                  res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write(geraPagVistoCancelado(vc,d))
-                        res.end()
-             }))*/
-                axios.get("http://localhost:3000/toDoList?_sort=data")
-                    .then(response => {
-                        var lista = response.data
-                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write( geraFormList(d ))
-                        res.write(geraPagList(lista,d))
-                        axios.get("http://localhost:3000/vistoCancelado?_sort=estado&_order=desc")
-                        .then(response => {
-                        var l = response.data
-                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write(geraPagVistoCancelado(l,d))
-                        res.end()
-                    })
-                        res.end()
-                    })
-                    .catch(function(erro){
-                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write("<p>Não foi possível obter to do list...")
-                        res.end()
-                    })
-                    axios.get("http://localhost:3000/vistoCancelado?_sort=estado&_order=desc")
-                    .then(response => {
-                        var lista = response.data
-                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write(geraPagVistoCancelado(lista,d))
-                        res.end()
-                    })
-                    .catch(function(erro){
-                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
-                        res.write("<p>Não foi possível obter to do list...")
-                        res.end()
-                    })
+                  res.write( geraFormList(d ))
+                  res.write(geraPagList(lista,d))
+                  vc = vcRes.data
+                  res.write(geraPagVistoCancelado(vc,d))
+                  res.end()
+             }))
 
         }
         else if(/w3.css$/.test(req.url)){
@@ -201,6 +218,72 @@ var toDoListServer = http.createServer(function (req, res) {
         }
         break
 
+        case "POST":
+            if((req.url == "/") || (req.url == "/toDoList")){
+                recuperaInfo(req, info => {
+                    console.log('Post :' + JSON.stringify(info))
+                    axios.post('http://localhost:3000/toDoList', info)
+                    .then(resp => {
+                        res.writeHead(302, {'Location': '' + req.url});
+                        res.end() 
+                    })
+                    .catch(erro => {
+                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                        res.write('<p>Erro no Post:' + erro + '</p>')
+                        res.write('<p><a href="/">Voltar</a></p>')
+                        res.end()
+                    })
+                })
+            }
+            else if((req.url == "/confirmation")){
+                recuperaInfo(req, info => {
+                    console.log('Confirmatiom :' + JSON.stringify(info))
+                    axios.post('http://localhost:3000/vistoCancelado', info)
+                    .then(resp => {
+                        res.writeHead(302, {'Location': '' + req.url});
+                        res.end() 
+                    })
+                    .catch(erro => {
+                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                        res.write('<p>Erro no Post:' + erro + '</p>')
+                        res.write('<p><a href="/">Voltar</a></p>')
+                        res.end()
+                    })
+                })
+            }
+            
+            else {
+                res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                res.write("<p>" + req.url + " não suportado neste serviço.</p>")
+                res.end()
+            }
+            break
+
+        case "Add" :
+            if((req.url == "/") || (req.url == "/toDoList")){
+                recuperaInfo(req, info => {
+                    console.log('Add :' + JSON.stringify(info))
+                    axios.post('http://localhost:3000/vistoCancelado', info)
+                    .then(resp => {
+                        res.writeHead(302, {'Location': '' + req.url});
+                        res.end() 
+                    })
+                    .catch(erro => {
+                        res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                        res.write('<p>Erro no Post:' + erro + '</p>')
+                        res.write('<p><a href="/">Voltar</a></p>')
+                        res.end()
+                    })
+                })
+            }
+            
+            else {
+                res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
+                res.write("<p>" + req.url + " não suportado neste serviço.</p>")
+                res.end()
+            }
+
+            break
         default: 
             res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
             res.write("<p>" + req.method + " não suportado neste serviço.</p>")

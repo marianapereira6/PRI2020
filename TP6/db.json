@@ -2,73 +2,42 @@
   "toDoList": [
     {
       "id": "1",
-      "data": "22-12-98",
+      "dateCreated": "22-12-98",
+      "dateDued": "24-12-98",
       "responsavel": "A81146",
       "descricao": "MIEI"
     },
     {
       "id": "2",
-      "data": "02-07-98",
+      "dateCreated": "02-07-98",
+      "dateDued": "01-12-98",
       "responsavel": "A81146",
       "descricao": "golias"
     },
     {
       "id": "3",
-      "data": "11-11-98",
+      "dateCreated": "11-11-98",
+      "dateDued": "11-12-98",
       "responsavel": "A81146",
       "descricao": "59"
-    },
-    {
-      "data": "hhh",
-      "descricao": "jj",
-      "responsavel": "jjj",
-      "id": "CIWPMmj"
-    },
-    {
-      "data": "",
-      "descricao": "",
-      "responsavel": "",
-      "id": "uHkmDPp"
-    },
-    {
-      "id": "fwv3Pvp"
-    },
-    {
-      "id": "8iGq49w"
-    },
-    {
-      "id": "8DeMNOs"
     }
   ],
   "vistoCancelado": [
     {
-      "id": "1",
-      "data": "22-12-98",
+      "id": "6",
+      "dateCreated": "22-12-98",
+      "dateDued": "24-12-98",
       "responsavel": "A81146",
       "descricao": "MIEI",
       "estado": "cancelado"
     },
     {
-      "id": "2",
-      "data": "02-07-98",
+      "id": "27",
+      "dateCreated": "02-07-98",
+      "dateDued": "01-12-98",
       "responsavel": "A81146",
       "descricao": "golias",
       "estado": "visto"
-    },
-    {
-      "id": "ik6C6NU"
-    },
-    {
-      "id": "V-8gxIK"
-    },
-    {
-      "id": "nX_C2td"
-    },
-    {
-      "id": "XsGTzkF"
-    },
-    {
-      "id": "hzFqkC6"
     }
   ]
 }

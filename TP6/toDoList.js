@@ -18,6 +18,12 @@ function recuperaInfo(request, callback){
         })
     }
 }
+
+
+function myFunction() {
+    var list = document.getElementById("myList");
+    list.removeChild(list.childNodes[0]);
+  }
 // Template para a página com to do List ------------------
 function geraPagList( lista, d){
     let pagHTML = `
@@ -33,6 +39,7 @@ function geraPagList( lista, d){
               </div>
               <table class="w3-table w3-bordered">
                   <tr>
+                      <th>Data criç\ão </th>
                       <th>Data limite</th>
                       <th>Responsável</th>
                       <th>Descrição</th>
@@ -42,16 +49,25 @@ function geraPagList( lista, d){
                   </tr>
     `
       lista.forEach(a => {
+          var d =a.data
           pagHTML += `
+
+          
               <tr>
-                  <td>${a.data}</td>
-                  <td>${a.responsavel}</td>
-                  <td>${a.descricao}</td>
+    
                   <form class="w3-container" action="/confirmation" method="POST">
-                  <td><input class="w3-btn w3-blue-teal" type="submit" value="✔️"/></td>
+                    <td> ${a.dateCreated}  </td>
+                    <td> ${a.dateDued} </td>
+                    <td> ${a.responsavel} </td>
+                    <td> ${a.descricao}</td>
+                    <td><input class="w3-btn w3-blue-teal" type="submit" value="✔️"/></td>
+
                   </form>
+
+
                   <form class="w3-container" action="/cancel" method="POST">
-                  <td><input class="w3-btn w3-blue-teal" type="submit" value="x"/></td>
+    
+                    <td><input class="w3-btn w3-blue-teal" type="submit" value="x"/></td>
                   </form>
               </tr>
           `
@@ -85,8 +101,11 @@ function geraFormList( d ){
             </div>
 
             <form class="w3-container" action="/toDoList" method="POST">
+                <label class="w3-text-teal"><b>Data Cria\ção</b></label>
+                <input class="w3-input w3-border w3-light-grey" type="text" name="dateCreated">
+
                 <label class="w3-text-teal"><b>Data Limite</b></label>
-                <input class="w3-input w3-border w3-light-grey" type="text" name="data">
+                <input class="w3-input w3-border w3-light-grey" type="text" name="dateDued">
           
                 <label class="w3-text-teal"><b>Descriçao</b></label>
                 <input class="w3-input w3-border w3-light-grey" type="text" name="descricao">
@@ -118,6 +137,7 @@ function geraPagVistoCancelado( lista, d){
               <table class="w3-table w3-bordered">
                   <tr>
                       <th>Estado</th>
+                      <th>Data criação </th>
                       <th>Data limite</th>
                       <th>Responsável</th>
                       <th>Descrição</th>
@@ -127,7 +147,8 @@ function geraPagVistoCancelado( lista, d){
           pagHTML += `
               <tr>
                   <td>${a.estado}</td>
-                  <td>${a.data}</td>
+                  <td> ${a.dateCreated} </td>
+                  <td>${a.dateDued}</td>
                   <td>${a.responsavel}</td>
                   <td>${a.descricao}</td>
               </tr>
@@ -137,43 +158,13 @@ function geraPagVistoCancelado( lista, d){
     pagHTML += `
           </table>
           <div class="w3-container w3-teal">
-              <address>Gerado por ToDoList::PRI2020 em ${d} --------------</address>
+              <address>Gerado por Mariana Pereira::PRI2020 em ${d} --------------</address>
           </div>
       </body>
       </html>
     `
     return pagHTML
 }
-
-// POST Confirmation HTML Page Template -------------------------------------
-function geraPostConfirm( registo, d){
-    return `
-    <html>
-    <head>
-        <title>POST receipt: ${registo.id}</title>
-        <meta charset="utf-8"/>
-        <link rel="icon" href="favicon.png"/>
-        <link rel="stylesheet" href="w3.css"/>
-    </head>
-    <body>
-        <div class="w3-card-4">
-            <header class="w3-container w3-teal">
-                <h1>Nova tarefa ${registo.id} inserido</h1>
-            </header>
-
-            <div class="w3-container">
-                <p><a href="/toDoList">Aceda aqui Ã  sua pÃ¡gina."</a></p>
-            </div>
-
-            <footer class="w3-container w3-teal">
-                <address>Gerado por ToDoList::PRI2020 em ${d} - [<a href="/">Voltar</a>]</address>
-            </footer>
-        </div>
-    </body>
-    </html>
-    `
-}
-
 
 
 
@@ -189,7 +180,7 @@ var toDoListServer = http.createServer(function (req, res) {
         case "GET": 
         if((req.url == "/") || (req.url == "/toDoList")){
             axios.all([
-                axios.get('http://localhost:3000/toDoList?_sort=data'),
+                axios.get('http://localhost:3000/toDoList?_sort=dateCreated.responsavel'),
                 axios.get('http://localhost:3000/vistoCancelado?_sort=estado&_order=desc')
                 ]).then(axios.spread((toListRes, vcRes) => {
                   lista = toListRes.data
@@ -236,6 +227,8 @@ var toDoListServer = http.createServer(function (req, res) {
                 })
             }
             else if((req.url == "/confirmation")){
+                lista = res.data
+                console.log("sss"+lista)
                 recuperaInfo(req, info => {
                     console.log('Confirmatiom :' + JSON.stringify(info))
                     axios.post('http://localhost:3000/vistoCancelado', info)
@@ -284,6 +277,7 @@ var toDoListServer = http.createServer(function (req, res) {
             }
 
             break
+
         default: 
             res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'})
             res.write("<p>" + req.method + " não suportado neste serviço.</p>")

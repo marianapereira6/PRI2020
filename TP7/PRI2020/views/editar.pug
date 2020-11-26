@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-pale-yellow
+            h3 Editar o Aluno
+                .w3-container
+                    input.w3-input.w3-border.w3-section.w3-light-grey(id="Número" type="text" name="Número" value=dados.Número)
+                    input.w3-input.w3-border.w3-section.w3-light-grey(id="Nome" type="text" name="Nome" value=dados.Nome)
+                    input.w3-input.w3-border.w3-section.w3-light-grey(id="Git" type="text" name="Git" value=dados.Git)
+                    
+                    button.w3-btn.w3-border.w3-margin-bottom.w3-right(onclick="atualizar('" + dados.Número + "')") Atualizar
+
+            footer
+                p
+                    a(href="/registar") Página de Registo
+                address Gerado por galuno :: 2020-novembro, jcr

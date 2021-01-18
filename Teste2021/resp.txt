@@ -1,0 +1,31 @@
+1)
+http://clav-api.di.uminho.pt/v2/classes/c750/descendencia?nivel=3&token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjExMTExMjIyMyIsImxldmVsIjoyLCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJwcmkyMDIwQHRlc3RlLnVtaW5oby5wdCIsImlhdCI6MTYxMDk4MzM4NiwiZXhwIjoxNjExMDEyMTg2fQ.bnITdHpJwJxixlIToH5d-PJLbu3fdj_-zRPpvsGAnS49LrRBHYG8-Aabsg8qinor1KyaRDeQgscCaKCt-JwycmHM8VQD5Z2ypxlNPE6U67-_LU34S5cXez0seOO7KLeXcJJZFoz3zl8rU_TFX45CNPRfAYSjI2_OLqZfRNJbasJZ35-Jiz9mH8VBzofOGSRlgtDId2O8htlgkR2dsMOxzbRSrh5fQYoMEFvbP-YKIiLcyin6ao_k4nSYNEOzyg2L3DRjoE5247pHX3GV5k1oaIYFiYWkQ6pkzHcBQpeX3wYpMZReyUuWxFXeZbXv91N5lLnw5HiLQqyI1d8iPPijIQ
+Resultado 3 
+lista em json:
+[
+    {
+        "codigo":"750.10",
+        "titulo":"Gestão do aluno/formando",
+        "id":"http://jcr.di.uminho.pt/m51-clav#c750.10",
+        "status":"A"
+    },
+    {
+        "codigo":"750.20","titulo":"Gestão formativa e curricular",
+        "id":"http://jcr.di.uminho.pt/m51-clav#c750.20",
+        "status":"A"},
+    {
+        "codigo":"750.30",
+        "titulo":"Avaliação de aprendizagens",
+        "id":"http://jcr.di.uminho.pt/m51-clav#c750.30",
+        "status":"A"
+    }
+]
+
+2)http://clav-api.di.uminho.pt/v2/classes?nivel=4&token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjExMTExMjIyMyIsImxldmVsIjoyLCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJwcmkyMDIwQHRlc3RlLnVtaW5oby5wdCIsImlhdCI6MTYxMDk4MzM4NiwiZXhwIjoxNjExMDEyMTg2fQ.bnITdHpJwJxixlIToH5d-PJLbu3fdj_-zRPpvsGAnS49LrRBHYG8-Aabsg8qinor1KyaRDeQgscCaKCt-JwycmHM8VQD5Z2ypxlNPE6U67-_LU34S5cXez0seOO7KLeXcJJZFoz3zl8rU_TFX45CNPRfAYSjI2_OLqZfRNJbasJZ35-Jiz9mH8VBzofOGSRlgtDId2O8htlgkR2dsMOxzbRSrh5fQYoMEFvbP-YKIiLcyin6ao_k4nSYNEOzyg2L3DRjoE5247pHX3GV5k1oaIYFiYWkQ6pkzHcBQpeX3wYpMZReyUuWxFXeZbXv91N5lLnw5HiLQqyI1d8iPPijIQ
+Resultado 116
+
+3)http://clav-api.di.uminho.pt/v2/classes/c750.30/descendencia?nivel=3&token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjExMTExMjIyMyIsImxldmVsIjoyLCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJwcmkyMDIwQHRlc3RlLnVtaW5oby5wdCIsImlhdCI6MTYxMDk4MzM4NiwiZXhwIjoxNjExMDEyMTg2fQ.bnITdHpJwJxixlIToH5d-PJLbu3fdj_-zRPpvsGAnS49LrRBHYG8-Aabsg8qinor1KyaRDeQgscCaKCt-JwycmHM8VQD5Z2ypxlNPE6U67-_LU34S5cXez0seOO7KLeXcJJZFoz3zl8rU_TFX45CNPRfAYSjI2_OLqZfRNJbasJZ35-Jiz9mH8VBzofOGSRlgtDId2O8htlgkR2dsMOxzbRSrh5fQYoMEFvbP-YKIiLcyin6ao_k4nSYNEOzyg2L3DRjoE5247pHX3GV5k1oaIYFiYWkQ6pkzHcBQpeX3wYpMZReyUuWxFXeZbXv91N5lLnw5HiLQqyI1d8iPPijIQ
+Resultado 5
+
+4)http://clav-api.di.uminho.pt/v2/classes/c750.30.001/procRel?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjExMTExMjIyMyIsImxldmVsIjoyLCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJwcmkyMDIwQHRlc3RlLnVtaW5oby5wdCIsImlhdCI6MTYxMDk4MzM4NiwiZXhwIjoxNjExMDEyMTg2fQ.bnITdHpJwJxixlIToH5d-PJLbu3fdj_-zRPpvsGAnS49LrRBHYG8-Aabsg8qinor1KyaRDeQgscCaKCt-JwycmHM8VQD5Z2ypxlNPE6U67-_LU34S5cXez0seOO7KLeXcJJZFoz3zl8rU_TFX45CNPRfAYSjI2_OLqZfRNJbasJZ35-Jiz9mH8VBzofOGSRlgtDId2O8htlgkR2dsMOxzbRSrh5fQYoMEFvbP-YKIiLcyin6ao_k4nSYNEOzyg2L3DRjoE5247pHX3GV5k1oaIYFiYWkQ6pkzHcBQpeX3wYpMZReyUuWxFXeZbXv91N5lLnw5HiLQqyI1d8iPPijIQ
+resultado 6

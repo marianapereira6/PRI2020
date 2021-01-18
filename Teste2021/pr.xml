@@ -19,8 +19,13 @@
         </worker>
     </workteam>
     <abstract>
-        <p></p>
-        <p>Criar uma lista de alunos/cursos/instrumentos. Cada elemento é um link que redireciona para o pedido respetivo no json-server. Em que este é uma lista em HTML com a lista do tema pedido e cada linha é um link  json-server para o pedido.  </p>
+        <p>Na primeira pergunta comecei por modificar o json usam o crt f, onde procurava por "PT/ABM/PCML02/002/XXXXXX_ alterando o XXXXX pelos numeros que apareciam, e no replace "PT_ABM_PCML02_002_XXXXX_, e alteraçao do "ref" ou ref por "_id" com os mesmo comandos. Ainda corregi algumas datas que se encontravam mal e acrescento de virgulas que faltavam.</p>
+        <p>Na criaçao da base de dados mongos comecei por instalar o mongoose no projeto, depois  criação do Schema na pasta model. Adiçao do mongoose.connection no file app.js. No final correr o comando "mongoimport -d Casamento casamentos.json --jsonArray".</p>
+        <p>Na realização das rotas pedidas, as duas ultimas nao se encontram realizadas com sucesso.</p>
+        <p>Na rota <i>GET /api/casamentos?byAno=true</i> so returna os anos agrupados.  </p>
+        <p>Na rota <i>GET /api/casamentos7noivos</i> era suposto selecinar os titulos todos dos casamentos, em seguida a fazer o slipt deste pelo <i>:</i> e <i>c.c.</i> uma vez que é ai que aparece o nome dos noivos. E depois faltava ordenação dos mesmo.</p>
+        <p>Na primeira parte do exercicio 2 depois da obtenção do token, utilizei o <i>postman</i> para a obtenção das respostas que se encontra no ficheiro <i>resp.txt</i></p>
+        <p>Na segunda parte do exercicio realizei uma interface para api dada. </p>
     </abstract>
     <deliverables>
     <link url="https://github.com/marianapereira6/PRI2020/blob/main/TP5/pr.xml">Project Record</link>
